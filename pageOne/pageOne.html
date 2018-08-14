@@ -1,28 +1,30 @@
-     <html>
-       <head>
-         <style type="text/css">
-           video, div, canvas { 
+<html>
+  <head>
+    <style type="text/css">
+      video, div, canvas { 
              -webkit-transform: rotateY(30deg) rotateX(-45deg);  <!-- CSS 3D 变换 -->
            }
-         </style>
-         <script>
-           window.onerror = function (message,source,lineno,colno,error){
-              window.alert('报错了')
-              window.alert(message)
-              window.alert(source + ':' + lineno + ':' + colno)
-              window.alert(JSON.stringify(error))
-
-           }
-         </script>>
-       </head>
-       <body>
-         <video src="avideo.mp4"></video>           <!-- HTML5 video -->
-         <div>
-           <canvas id="a2d"></canvas><br>             <!-- HTML5 canvas -->
+      .red_Color{
+        background-color: yellow;
+      }
+    </style>
+    <script>
+       window.onerror = function (message,source,lineno,colno,error){
+          window.alert('报错了')
+          window.alert(message)
+          window.alert(source + ':' + lineno + ':' + colno)
+          window.alert(JSON.stringify(error))
+       }
+    </script>
+  </head>
+  <body>
+         <video src="avideo.mp4"> </video>           <!-- HTML5 video -->
+         <div class="red_Color">
+           <canvas id="a2d"> </canvas><br>             <!-- HTML5 canvas -->
            
-           <canvas id="a3d"></canvas>               <!-- HTML5 canvas -->
+           <canvas id="a3d"> </canvas>               <!-- HTML5 canvas -->
          </div>
-         <script type="text/javascript">
+    <script type="text/javascript">
              var size = 300;
      
              // canvas 2D 绘图
@@ -38,6 +40,6 @@
              a3dCtx.canvas.height = size;
              a3dCtx.clearColor(0.0, 192.0/255.0, 192.0/255.0, 80.0/255.0);
              a3dCtx.clear(a3dCtx.COLOR_BUFFER_BIT);
-         </script>
-       </body>  
-     </html>
+    </script>
+  </body>  
+</html>
