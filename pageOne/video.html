@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <style type="text/css">
+      video, div, canvas { 
+             -webkit-transform: rotateY(30deg) rotateX(-45deg);  <!-- CSS 3D 变换 -->
+           }
+      .red_Color{
+        background-color: yellow;
+      }
+    </style>
+    <script>
+       window.onerror = function (message,source,lineno,colno,error){
+          window.alert('报错了')
+          window.alert(message)
+          window.alert(source + ':' + lineno + ':' + colno)
+          window.alert(JSON.stringify(error))
+       }
+    </script>
+  </head>
+  <body>
+         <video src="avideo.mp4"> </video>           <!-- HTML5 video -->
+         <div class="red_Color">
+           <canvas id="a2d"> </canvas><br>             <!-- HTML5 canvas -->
+           <canvas id="a3d"> </canvas>               <!-- HTML5 canvas -->
+         </div>
+  </body>  
+</html>
