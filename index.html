@@ -4,13 +4,15 @@
            /* img { width: 100px; } */
          </style>
          <script type="text/javascript" src="JS/jumpThroughPost.js">
-
+         function bodyOnload(){
+           window.alert("body onload方法调用");
+         }
           </script>
          <title>This is a simple case.</title>
        </head>
-       <body>
+       <body onload="javascript:bodyOnload()">
          <div>Hello world!</div>
-       </p>
+         </p>
          <div> 点击下面这个链接会进入WebGL截屏测试页面</div>
          <a href="pageOne/pageOne.html" target="_self">webGL截屏测试页面</a>
 
