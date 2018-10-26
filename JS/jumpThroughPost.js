@@ -31,6 +31,15 @@ function bodyOnload(){
   window.alert("body onload方法调用");
 }
 
+document.addEventListener("DOMContentLoaded", function(event) {
+    window.alert("浏览器已经完全加载了 HTML，DOM 树已经构建完毕，但是像是 <img> 和样式表等外部资源可能并没有下载完毕");
+    });
+
+window.addEventListener("load", function(event) {
+      window.alert("浏览器已经加载了所有的资源（图像，样式表等");
+    });
+
+
 // 作者：shiyonghm
 // 来源：CSDN
 // 原文：https://blog.csdn.net/shiyong1949/article/details/72471294
