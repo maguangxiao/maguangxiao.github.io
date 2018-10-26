@@ -39,6 +39,8 @@ window.addEventListener("load", function(event) {
       window.alert("浏览器已经加载了所有的资源（图像，样式表等");
     });
 
+document.addEventListener('readystatechange', () => window.alert('readyState:' + document.readyState));
+
 
 // 作者：shiyonghm
 // 来源：CSDN
