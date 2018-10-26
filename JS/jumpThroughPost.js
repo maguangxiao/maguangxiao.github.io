@@ -27,6 +27,10 @@ function newPage(pagePath,pageId){
 
     httpPost("pageForPostResearch/pagePost.html", params);
 }
+function bodyOnload(){
+  window.alert("body onload方法调用");
+}
+
 // 作者：shiyonghm
 // 来源：CSDN
 // 原文：https://blog.csdn.net/shiyong1949/article/details/72471294
