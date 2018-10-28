@@ -1,10 +1,13 @@
 
 function catchEvent(eventObj,event,eventHandler){
-  if (eventObj.addEventListener) {
-    eventObj.addEventListener(event,eventHandler,false);
-  }else if (eventObj.attachEvent){
-    event = "on" + event;
-    eventObj.attachEvent(event,eventHandler);
+  if (eventObj) {
+    if (eventObj.addEventListener) {
+      eventObj.addEventListener(event,eventHandler,false);
+    }else if (eventObj.attachEvent){
+      event = "on" + event;
+      eventObj.attachEvent(event,eventHandler);
+    }
+
   }
 }
 
