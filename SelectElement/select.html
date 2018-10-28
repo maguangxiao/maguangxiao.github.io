@@ -1,0 +1,90 @@
+<html>                                <!-- HTML文本 -->
+  <head>
+    <style type="text/css">               <!-- CSS代码 -->
+      /* img { width: 100px; } */
+    </style>
+    <iframe src="iFrame.html" width="300" height="400"></iframe>
+
+    <script type="text/javascript" src="../JS/select.js">
+     </script>
+    <title>处理多选列表的结果</title>
+  </head>
+  <body >
+    <div>
+      <p>
+        =================以下内容为学习选择列表框============
+      </p>
+      <p>
+        1、处理多选列表的结果 对应按钮 “提交验证”
+      </p>
+      <p>
+      2、动态修改选择列表框 对应按钮 “删除选中的选项”
+    </p>
+    <p>
+      3.选择列表框的自动选择 对应按钮 “自动选中奇数个选项”
+    </p>
+    <p>❓为啥写了5个option就不能全部展示出来了呢？❓</p>
+    </div>
+    <form id="someForm" action="" method="post">
+    <select class="selec" name="theSelection" id="selectOpts" multiple="multiple" height = '200px'>
+      <option value="opt0">option 0</option>
+      <option value="opt1">option 1</option>
+      <option value="opt2">option 2</option>
+      <option value="opt3">option 3</option>
+      <option value="opt4">option 4</option>
+    </select>
+    <p>
+        <input type="submit" name="" value="提交验证"/>
+    </p>
+
+    <p>
+      <input type="button" name="" value="删除选中的选项" onclick="javascript:deleteSelectedOpt();"/>
+
+    </p>
+
+    <p>
+      <input type="button" name="" value="自动选中奇数个选项" onclick="javascript:autoSelectOddOpt();">
+    </p>
+  </form>
+  <div>
+    <p>
+      =================以下内容为学习单选按钮和复选框============
+    </p>
+  </div>
+
+<form id="someForm1">
+  <p>
+    <input type="checkbox" name="color1" value="red"/>:red <br/>
+    <input type="checkbox" name="color2" value="green"/>:green <br/>
+    <input type="checkbox" name="color3" value="yellow"/>:yellow <br/>
+    <input type="checkbox" name="color4" value="blur"/>:blue <br/>
+    <input type="submit" name="" value="判断是否至少选中一个">
+  </p>
+</form>
+
+
+<p>
+  ==================a标签的页面跳转方式尝试================
+</p>
+<p>
+  <a href="https://juejin.im/entry/589d8c532f301e0069bfa595" target="_blank">这里有一个iframe的博客介绍 target = "_blank"</a> <br>
+</p>
+<p>
+  <a href="https://juejin.im/entry/589d8c532f301e0069bfa595" target="_self">这里有一个iframe的博客介绍 target = "_self"</a> <br>
+
+</p>
+<p>
+  <a href="JavaScript:void(0);" onclick= "window.location.href='https://juejin.im/entry/589d8c532f301e0069bfa595'" target="_blank">这里有一个iframe的博客介绍 window.location.href target = "_blank"</a> <br>
+</p>
+<p>
+  <a href="javascript:void(0);" onclick= "window.open('https://juejin.im/entry/589d8c532f301e0069bfa595','_self')" target="_blank">这里有一个iframe的博客介绍 window.open('href','_self') target = "_blank"</a> <br>
+
+</p>
+
+<p>
+  <a href="javascript:void(0);" onclick= "window.open('https://juejin.im/entry/589d8c532f301e0069bfa595','_blank')" target="_blank">这里有一个iframe的博客介绍 window.open('href','_blank') target = "_blank"</a> <br>
+
+</p>
+
+  </body>
+</html>

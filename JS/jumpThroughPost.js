@@ -40,9 +40,3 @@ window.addEventListener("load", function(event) {
     });
 
 document.addEventListener('readystatechange', () => window.alert('readyState:' + document.readyState));
-
-
-// 作者：shiyonghm
-// 来源：CSDN
-// 原文：https://blog.csdn.net/shiyong1949/article/details/72471294
-// 版权声明：本文为博主原创文章，转载请附上博文链接！
