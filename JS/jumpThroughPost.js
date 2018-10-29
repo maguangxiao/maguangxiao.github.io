@@ -24,19 +24,38 @@ function newPage(pagePath,pageId){
         "pagePath": pagePath,
         "pageId": pageId,
     };
-
     httpPost("pageForPostResearch/pagePost.html", params);
 }
 function bodyOnload(){
-  window.alert("body onload方法调用");
+  console.log("body onload方法调用");
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    window.alert("浏览器已经完全加载了 HTML，DOM 树已经构建完毕，但是像是 <img> 和样式表等外部资源可能并没有下载完毕");
+    console.log("浏览器已经完全加载了 HTML，DOM 树已经构建完毕，但是像是 <img> 和样式表等外部资源可能并没有下载完毕");
     });
 
 window.addEventListener("load", function(event) {
-      window.alert("浏览器已经加载了所有的资源（图像，样式表等");
+      console.log("浏览器已经加载了所有的资源（图像，样式表等");
     });
 
-document.addEventListener('readystatechange', () => window.alert('readyState:' + document.readyState));
+document.addEventListener('readystatechange', () => console.log('readyState:' + document.readyState));
+
+
+function alert1(args){
+  window.alert(args);
+}
+
+function confirm1(args){
+  var result = window.confirm(args);
+  console.log("选择了" + (result ? "是" : "否"));
+}
+
+function prompt1(args){
+  var result = window.prompt(args);
+
+  console.log(result ? result : "取消");
+}
+
+function openAutoDefineWindow(){
+  window.open("https://www.baidu.com","test","width=375,height=400,toolbar=yes");
+}
