@@ -37,9 +37,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 window.addEventListener("load", function(event) {
       console.log("浏览器已经加载了所有的资源（图像，样式表等");
     });
+window.addEventListener("unload",function(event){
+  console.log("浏览器unload");
+})
 
 document.addEventListener('readystatechange', () => console.log('readyState:' + document.readyState));
 
+// XMLHttpRequest.onProgress = {
+//
+// }
 
 function alert1(args){
   window.alert(args);

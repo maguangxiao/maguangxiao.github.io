@@ -5,11 +5,23 @@
          <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 
          <script type="text/javascript" src="JS/jumpThroughPost.js"></script>
-         <script type="text/javascript" src="JS/hookTest.js"></script>
+         <!-- <script type="text/javascript" src="JS/hookTest.js"></script> -->
+         <script type="text/javascript">
+
+         window.onunload = unloadPage;
+
+         function unloadPage()
+         {
+          alert("unload event detected!");
+         }
+         </script>
 
        </head>
        <body onload="javascript:bodyOnload();">
          <div>Hello world!</div>
+         <p>
+           <a href="Window/blank.html">访问空页面</a>
+         </p>
          <p>
            <a href="pageForDSBridge/dsBridge.html" target="_self">dsBridge测试页面</a>
          </p>

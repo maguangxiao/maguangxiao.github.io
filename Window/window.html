@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript" src="../JS/jumpThroughPost.js"></script>
+    <script type="text/javascript">
+    function logUnload(){
+      window.alert('***888 事件unload');
+    }
+    window.addEventListener('unload',logUnload,false);
+    </script>
   </head>
   <body>
     <input type="button" name="" value="alert" onclick="javascript:alert1('这是一个alert弹框');">

@@ -8,6 +8,56 @@
     <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no"/>
     <!--require dsbridge init js-->
     <script src="https://cdn.jsdelivr.net/npm/dsbridge/dist/dsbridge.js"> </script>
+    <script src="https://unpkg.com/flyio/dist/fly.min.js"></script>
+    <!-- <script src="flyAndDs.js"></script> -->
+    <script type="text/javascript">
+    // var log = console.log;
+    // //切换fly engine为真正的XMLHttpRequest
+    // fly.engine = XMLHttpRequest;
+    // var Fly = require("../../dist/npm/fly")
+    // var EngineWrapper = require("../../dist/npm/engine-wrapper")
+    // var engine = EngineWrapper(function (request, responseCallback) {
+    //     console.log(request.url, request.method)
+    //     //发起真正的ajax请求
+    //     fly.request(request.url, request.data, request)
+    //         .then(function (d) {
+    //             responseCallback({
+    //                 statusCode: d.engine.status,
+    //                 responseText: d.engine.responseText,
+    //                 statusMessage: d.engine.statusText
+    //             })
+    //         })
+    //         .catch(function (err) {
+    //             responseCallback({
+    //                 statusCode:err.status,
+    //                 statusMessage:err.message
+    //             })
+    //         })
+    // })
+    // //覆盖默认
+    // XMLHttpRequest = engine;
+    var EngineWrapper = require("flyio/dist/npm/engine-wrapper")
+ //保存XMLHttpRequest
+ var realXMLHttpRequest=XMLHttpRequest;
+ var engine= EngineWrapper(function (request,responseCallback) {
+   //输出请求链接和请求方法
+   console.log(request.url,request.method)
+   //发起真正的请求
+   var xhr=new realXMLHttpRequest()
+   xhr.open(request.method,request.url);
+   xhr.send(request.body);
+   var callback=function () {
+     responseCallback({
+       statusCode:xhr.status,
+       responseText:xhr.responseText,
+       statusMessage:xhr.statusText
+     })
+   }
+   xhr.onload=callback;
+   xhr.onerror=callback;
+ })
+ XMLHttpRequest=engine;
+    </script>
 </head>
 <style>
     .btn {
