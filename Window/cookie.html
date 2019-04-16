@@ -12,8 +12,8 @@
             exp.setTime(exp.getTime() + Days*24*60*60*1000);
             var cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
             console.log(cookie);
-            document.cookie = 'test=testValue;';
-            window.Cookie = cookie;
+            document.cookie = cookie;
+            document.cookie = 'user=guangxiao;pwd=123456';
         }
 
         //读取cookies
