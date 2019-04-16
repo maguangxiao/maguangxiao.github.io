@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cookie测试</title>
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <script type="text/javascript">
+      function setTestCookie(name,value)
+        {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days*24*60*60*1000);
+            var cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+            console.log(cookie);
+            document.cookie = 'test=testValue;';
+            window.Cookie = cookie;
+        }
+
+        //读取cookies
+        function getTestCookie(cname)
+        {
+          var name = cname + "=";
+          console.log(document.cookie);
+          var ca = document.cookie.split(';');
+          for(var i=0; i<ca.length; i++)
+          {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+          }
+          return "";
+        }
+
+        //删除cookies
+        function delTestCookie(name)
+        {
+            var exp = new Date();
+            exp.setTime(exp.getTime() - 1);
+            var cval=getTestCookie(name);
+            if(cval!=null)
+                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+        }
+    </script>
+  </head>
+  <body>
+    <div class="" onclick="setTestCookie('test','testCookieValue')">
+      写入Cookie
+    </div>
+
+    <div id="cookieExample" onclick="getTestCookie('test')">
+      获取cookie
+    </div>
+
+    <div id="cookieExample" onclick="delTestCookie('test')">
+      删除cookie
+    </div>
+
+
+  </body>
+</html>

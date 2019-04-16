@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>浏览器信息</title>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script>
+    txt = "<p>浏览器代号:navigator.appCodeName ==== " + navigator.appCodeName + "</p>";
+    txt+= "<p>浏览器名称:navigator.appName ==== " + navigator.appName + "</p>";
+    txt+= "<p>浏览器版本:navigator.appVersion ==== " + navigator.appVersion + "</p>";
+    txt+= "<p>启用Cookies:navigator.cookieEnabled ==== " + navigator.cookieEnabled + "</p>";
+    txt+= "<p>硬件平台:navigator.platform ==== " + navigator.platform + "</p>";
+    txt+= "<p>用户代理:navigator.userAgent ==== " + navigator.userAgent + "</p>";
+    txt+= "<p>用户代理语言: navigator.systemLanguage==== " + navigator.systemLanguage + "</p>";
+    document.getElementById("example").innerHTML=txt;
+    </script>
+  </body>
+</html>

@@ -8,6 +8,11 @@ body {
 	margin: 0
 }
 
+div{
+	height:49px;
+	border:1px solid #0F0;
+	background-color:#069
+ }
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
 	display: block
 }
