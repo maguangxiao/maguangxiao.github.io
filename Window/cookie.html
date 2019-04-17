@@ -44,7 +44,10 @@
             if(cval!=null){
               document.cookie= name + "="+cval+";expires="+exp.toGMTString();
             }
-              document.getElementById('cookieDelExample').innerHTML = 'document.cookie:' + document.cookie;
+            var tempCookie = document.cookie;
+            document.cookie = '';
+
+              document.getElementById('cookieDelExample').innerHTML = 'document.cookie:' + tempCookie + ';' + '\n' + 'nowCookie:' + document.cookie;
 
         }
     </script>
