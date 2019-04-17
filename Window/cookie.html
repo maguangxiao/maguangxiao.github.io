@@ -26,7 +26,11 @@
           for(var i=0; i<ca.length; i++)
           {
             var c = ca[i].trim();
-            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+            if (c.indexOf(name)==0){
+              var targetCookie = c.substring(name.length,c.length);
+              document.getElementById('cookieGetExample').text = name + ':' + targetCookie + '\n' + 'document.cookie:' + document.cookie;
+              return targetCookie;
+            }
           }
           return "";
         }
@@ -37,8 +41,11 @@
             var exp = new Date();
             exp.setTime(exp.getTime() - 1);
             var cval=getTestCookie(name);
-            if(cval!=null)
-                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+            if(cval!=null){
+              document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+            }
+              document.getElementById('cookieDelExample').text = name + ':' + targetCookie + '\n' + 'document.cookie:' + document.cookie;
+
         }
     </script>
   </head>
@@ -47,11 +54,11 @@
       写入Cookie
     </div>
 
-    <div id="cookieExample" onclick="getTestCookie('test')">
+    <div id="cookieGetExample" onclick="getTestCookie('test')">
       获取cookie
     </div>
 
-    <div id="cookieExample" onclick="delTestCookie('test')">
+    <div id="cookieDelExample" onclick="delTestCookie('test')">
       删除cookie
     </div>
 
