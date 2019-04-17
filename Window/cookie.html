@@ -28,7 +28,7 @@
             var c = ca[i].trim();
             if (c.indexOf(name)==0){
               var targetCookie = c.substring(name.length,c.length);
-              document.getElementById('cookieGetExample').text = name + ':' + targetCookie + '\n' + 'document.cookie:' + document.cookie;
+              document.getElementById('cookieGetExample').innerHTML = name + ':' + targetCookie + '\n' + 'document.cookie:' + document.cookie;
               return targetCookie;
             }
           }
@@ -44,7 +44,7 @@
             if(cval!=null){
               document.cookie= name + "="+cval+";expires="+exp.toGMTString();
             }
-              document.getElementById('cookieDelExample').text = name + ':' + targetCookie + '\n' + 'document.cookie:' + document.cookie;
+              document.getElementById('cookieDelExample').innerHTML = 'document.cookie:' + document.cookie;
 
         }
     </script>
