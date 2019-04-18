@@ -11,12 +11,11 @@
             var exp = new Date();
             exp.setTime(exp.getTime() + Days*24*60*60*1000);
             document.cookie = 'user=guangxiao' + ";expires=" + exp.toGMTString();
-            document.cookie = 'pwd=123456;';
+            document.cookie = 'pwd=123456'+ ";expires=" + exp.toGMTString();
             var cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
             console.log(cookie);
             document.cookie = cookie;
             console.log(cookie);
-
         }
 
         //读取cookies
