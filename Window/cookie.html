@@ -12,10 +12,19 @@
             exp.setTime(exp.getTime() + Days*24*60*60*1000);
             document.cookie = 'user=guangxiao' + ";expires=" + exp.toGMTString();
             document.cookie = 'pwd=123456'+ ";expires=" + exp.toGMTString();
+            document.cookie = 'HIT_SID=129950; expires=Thu, 19-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com'
+            document.cookie = 'HIT_SID=129950; expires=Thu, 19-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com'
+            document.cookie = 'H_WISE_SIDS=129950_100458; expires=Thu, 19-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com';
+
             var cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
             console.log(cookie);
             document.cookie = cookie;
             console.log(cookie);
+        }
+
+        function setTCookie(){
+          document.cookie = 'HIT_SID=129950; expires=Thu, 18-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com';
+          document.cookie = 'H_WISE_SIDS=129950_100458; expires=Thu, 18-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com';
         }
 
         //读取cookies
