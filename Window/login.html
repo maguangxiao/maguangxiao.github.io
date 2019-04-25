@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <script type="text/javascript">
+      function loadXMLDoc (){
+        <!-- http://rap2api.taobao.org/app/mock/166865/post/test/login -->
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("POST","http://rap2api.taobao.org/app/mock/166865/post/test/login",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send("name=Henry&password=Ford");
+      }
+    </script>
+  </head>
+  <body>
+
+    <button type="button" onclick="loadXMLDoc()">点击发出post请求</button>
+
+  </body>
+</html>
