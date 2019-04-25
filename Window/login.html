@@ -18,15 +18,31 @@
             // IE6, IE5 浏览器执行代码
             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
+        //responseText
+        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+
+        <!-- //responseXML
+          xmlDoc=xmlhttp.responseXML;
+        txt="";
+        x=xmlDoc.getElementsByTagName("ARTIST");
+        for (i=0;i<x.length;i++)
+        {
+            txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+        } -->
+
+        document.getElementById("myDiv").innerHTML=txt;
         xmlhttp.open("POST","https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send("name=Henry&password=Ford");
+
       }
     </script>
   </head>
   <body>
 
     <button type="button" onclick="loadXMLDoc()">点击发出post请求</button>
+    <div class="" id="myDiv">
 
+    </div>
   </body>
 </html>
