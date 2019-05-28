@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     <script type="text/javascript">
+
       function loadXMLDoc (){
         <!-- http://rap2api.taobao.org/app/mock/166865/post/test/login -->
         var xmlhttp;
@@ -24,15 +26,12 @@
             if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
                 document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-                var text = xmlhttp.responseText;
-                console.log(text + 'haha1');
             }
         }
 
         xmlhttp.open("POST","https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send("name=Henry&password=Ford");
-
       }
     </script>
   </head>
