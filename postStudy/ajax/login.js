@@ -23,7 +23,7 @@ function loadXMLDoc (){
   }
 
   xmlhttp.open("POST","https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",true);
-  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.setRequestHeader("Content-type","multipart/form-data");
   xmlhttp.send("name=Henry&password=Ford");
 }
 //将参数拼接在URL中，data属性为空
@@ -69,22 +69,22 @@ function getFormInfo(){
   // 第三种写法（根据表单id属性，把表单封装数据，调用JQuery的serialize()方法序列化为字符串）
   // 前提是：发送请求的必须是一个form表单，而且表单内要做参数的标签必须具有name属性，因为name属性会被认为请求参数名
   //代码如下
-      function getFormInfoWithStringStyle(){
-          var params=$('#login').serialize(); //把id为login的form表单里的参数自动封装为参数传递
-          console.log(params);
-          $.ajax({
-           url: "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
-           type: "POST",
-           data:params,
-           cache:false,
-           dataType: "json",
-           success: function(data){
+function getFormInfoWithStringStyle(){
+    var params=$('#login').serialize(); //把id为login的form表单里的参数自动封装为参数传递
+    console.log(params);
+    $.ajax({
+     url: "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
+     type: "POST",
+     data:params,
+     cache:false,
+     dataType: "json",
+     success: function(data){
 
-            },
-            error:function(err){
-            }
-          });
+      },
+      error:function(err){
       }
+    });
+}
 
 
       //第四种写法（拼接data）
