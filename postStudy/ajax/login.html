@@ -13,16 +13,10 @@
 
     <button type="button" onclick="loadXMLDoc()">点击发出post请求</button>
     <div class="" id="myDiv"></div>
+    <br>
     <button type="button" onclick="getFormInfo()">点击发出post请求 参数拼接在URL中</button> <br>
-
+    <br>
     <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求 参数写成json格式</button><br>
-
-    <button type="button" onclick="getFormInfoWithStringStyle()">点击发出post请求 参数被序列化为字符串</button><br>
-
-    <button type="button" onclick="getFormInfoWithData()">点击发出post请求 参数拼接data数据</button><br>
-
-    <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
-    <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
 
     <form id="login" enctype="text/plain">
             <input name="user" type="text" placeholder="输入用户名"/><br>
@@ -35,5 +29,13 @@
             <input type="checkbox" name="interest" value="ddr">DDR<br>
             <input type="button" name="submit" value="submit" style="" onclick="getFormInfo();">
     </form>
+    <button type="button" onclick="getFormInfoWithStringStyle()">点击发出post请求 参数被序列化为字符串</button><br>
+
+
+    <button type="button" onclick="getFormInfoWithData()">点击发出post请求 参数拼接data数据</button><br>
+
+    <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
+    <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
+
   </body>
 </html>
