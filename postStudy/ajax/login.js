@@ -47,6 +47,7 @@ function getFormInfo(){
 
 // https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login
 //第二种写法（参数写成json数据形式）
+//拦截到的this._type = "application/x-www-form-urlencoded; charset=UTF-8"
   function getFormInfoWithJSONStyle(){
       $.ajax({
        url: "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
