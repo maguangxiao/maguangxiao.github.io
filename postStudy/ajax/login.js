@@ -1,6 +1,4 @@
 
-document.write('<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>');
-document.write('<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>');
 //AJax入门方法测试
 function loadXMLDoc (){
   <!-- http://rap2api.taobao.org/app/mock/166865/post/test/login -->
@@ -54,8 +52,8 @@ function getFormInfo(){
        url: "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
        type: "POST",
        data:{
-          name:'chem',
-          user:'wen'
+          name:'name',
+          user:'user'
        },
        cache:false,
        dataType: "json",
@@ -90,8 +88,8 @@ function getFormInfo(){
 
       //第四种写法（拼接data）
 function getFormInfoWithData(){
-    var name='chen';
-    var user='wen';
+    var name='name';
+    var user='user';
     $.ajax({
      url: "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
      type: "POST",
