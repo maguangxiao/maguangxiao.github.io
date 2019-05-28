@@ -23,7 +23,7 @@ function loadXMLDoc (){
   }
 
   xmlhttp.open("POST","https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",true);
-  // xmlhttp.setRequestHeader("Content-type","multipart/form-data");
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send("name=Henry&password=Ford");
 }
 //将参数拼接在URL中，data属性为空

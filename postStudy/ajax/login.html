@@ -18,23 +18,38 @@
     <br>
     <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求 参数写成json格式</button><br>
 
-    <form id="login" action="https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login" method="post" enctype="text/plain">
-        <input name="user" type="text" placeholder="输入用户名"/><br>
-        选择性别: <br>
-        <input name="sex" type="radio" value="man"/>man<br>
-        <input name="sex" type="radio" value="woman"/>woman<br>
-        interest: <br>
-        <input type="checkbox" name="interest" value="piu">PIU <br>
-        <input type="checkbox" name="interest" value="dss">DSS <br>
-        <input type="checkbox" name="interest" value="ddr">DDR<br>
-        <input type="submit"  value="submit">
-    </form>
     <button type="button" onclick="getFormInfoWithStringStyle()">点击发出post请求 参数被序列化为字符串</button><br>
 
     <button type="button" onclick="getFormInfoWithData()">点击发出post请求 参数拼接data数据</button><br>
 
     <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
     <button type="button" onclick="getFormInfoWithJSONStyle()">点击发出post请求参数写成json格式</button><br>
+
+    <h5>submit -- text/plain 类型</h5>
+    <form id="login" action="https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login" method="post" enctype="text/plain">
+        <input name="user" type="text" value="baiduAdmin" placeholder="输入用户名"/><br>
+        选择性别:
+        <input name="sex" type="radio"  value="man" checked="checked" />man
+        <input name="sex" type="radio" value="woman"/>woman<br>
+        interest: <br>
+        <input type="checkbox" name="interest" value="piu" checked="checked" />PIU <br>
+        <input type="checkbox" name="interest" value="dss" />DSS <br>
+        <input type="checkbox" name="interest" value="ddr"  checked="checked" />DDR<br>
+        <input type="submit"  value="submit">
+    </form>
+
+    <h5>submit -- multipart/form-data 类型</h5>
+    <form id="login" action="https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login" method="post" enctype="multipart/form-data">
+        <input name="user" type="text" value="baiduAdmin" placeholder="输入用户名"/><br>
+        选择性别:
+        <input name="sex" type="radio"  value="man" checked="checked" />man
+        <input name="sex" type="radio" value="woman"/>woman<br>
+        interest: <br>
+        <input type="checkbox" name="interest" value="piu" checked="checked" />PIU <br>
+        <input type="checkbox" name="interest" value="dss" />DSS <br>
+        <input type="checkbox" name="interest" value="ddr"  checked="checked" />DDR<br>
+        <input type="submit"  value="submit">
+    </form>
 
   </body>
 </html>
