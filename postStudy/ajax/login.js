@@ -116,6 +116,8 @@ function loadWithFormData()
         oData = new FormData(form);
 
     oData.append("CustomField", "This is some extra data");
+    var fileField = document.querySelector("input[type='file']");
+    oData.append('avatar', fileField.files[0]);
 
     var oReq = new XMLHttpRequest();
     oReq.open("POST", "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login", true);
