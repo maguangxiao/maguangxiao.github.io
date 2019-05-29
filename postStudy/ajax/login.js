@@ -121,9 +121,9 @@ function loadWithFormData()
     oReq.open("POST", "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login", true);
     oReq.onload = function(oEvent) {
       if (oReq.status == 200) {
-        oOutput.innerHTML = "Uploaded!";
+        alert('oReq.status == 200')
       } else {
-        oOutput.innerHTML = "Error " + oReq.status + " occurred when trying to upload your file.<br \/>";
+        alert('"Error " + oReq.status + " occurred when trying to upload your file.<br \/>"')
       }
     };
 
