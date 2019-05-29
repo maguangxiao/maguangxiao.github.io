@@ -50,14 +50,14 @@
     </form>
 
     <h5>4.FormData对象</h5>
-    <form enctype="multipart/form-data" method="post" name="fileinfo">
+    <form enctype="multipart/form-data" method="post" name="fileinfo" id = "upload">
       <label>Your email address:</label>
       <input type="email" autocomplete="on" autofocus name="userid" placeholder="email" required size="32" maxlength="64" value="12558998@qq.com" /><br />
       <label>Custom file label:</label>
       <input type="text" name="filelabel" size="12" maxlength="32" value="some customed file label" /><br />
       <label>要上传的文件:</label>
       <input type="file" name="file" required /> <br>
-      <input type="submit" value="点击提交文件" /><br>
+      <!-- <input type="submit" value="点击提交文件" /><br> -->
     </form>
     <button type="button" onclick="loadWithFormData()">点击发出post请求 通过FormData对象</button><br>
 

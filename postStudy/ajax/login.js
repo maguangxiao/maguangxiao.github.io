@@ -109,27 +109,49 @@ function getFormInfoWithData(){
 //=================FormData对象
 function loadWithFormData()
 {
-  var form = document.forms.namedItem("fileinfo");
-  form.addEventListener('submit', function(ev) {
+  var form = document.getElementById('upload'),
+    formData = new FormData(form);
+  $.ajax({
+   url:"https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login",
+   type:"post",
+   data:formData,
+   processData:false,
+   contentType:false,
+   success:function(res){
+    if(res){
+     alert("上传成功！");
+    }
+    console.log(res);
+    $("#pic").val("");
+    $(".showUrl").html(res);
+    $(".showPic").attr("src",res);
+   },
+   error:function(err){
+    alert("网络连接失败,稍后重试",err);
+   }
 
-    var oOutput = document.querySelector("div"),
-        oData = new FormData(form);
-
-    oData.append("CustomField", "This is some extra data");
-    var fileField = document.querySelector("input[type='file']");
-    oData.append('avatar', fileField.files[0]);
-
-    var oReq = new XMLHttpRequest();
-    oReq.open("POST", "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login", true);
-    oReq.onload = function(oEvent) {
-      if (oReq.status == 200) {
-        alert('oReq.status == 200')
-      } else {
-        alert('"Error " + oReq.status + " occurred when trying to upload your file.<br \/>"')
-      }
-    };
-
-    oReq.send(oData);
-    ev.preventDefault();
-  }, false);
+  })
+  // var form = document.forms.namedItem("fileinfo");
+  // form.addEventListener('submit', function(ev) {
+  //
+  //   var oOutput = document.querySelector("div"),
+  //       oData = new FormData(form);
+  //
+  //   oData.append("CustomField", "This is some extra data");
+  //   // var fileField = document.querySelector("input[type='file']");
+  //   // oData.append('avatar', fileField.files[0]);
+  //
+  //   var oReq = new XMLHttpRequest();
+  //   oReq.open("POST", "https://www.easy-mock.com/mock/5cc179f879522a0fe12bcda1/post/post/test/login", true);
+  //   oReq.onload = function(oEvent) {
+  //     if (oReq.status == 200) {
+  //       alert('oReq.status == 200')
+  //     } else {
+  //       alert('"Error " + oReq.status + " occurred when trying to upload your file.<br \/>"')
+  //     }
+  //   };
+  //
+  //   oReq.send(oData);
+  //   ev.preventDefault();
+  // }, false);
 }
