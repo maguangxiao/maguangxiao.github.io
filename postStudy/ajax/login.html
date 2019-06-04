@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <add key="Access-Control-Allow-Origin" value="<exact name of site>" />
+    <add key="Access-Control-Allow-Methods" value="POST, GET, OPTIONS, DELETE" />
+    <add key="Access-Control-Allow-Credentials" value="true" />
+    <add key="Access-Control-Allow-Headers" value="Accept,Origin,Content-Type,X-LS-CORS-Template,X-LS-Auth-Token,X-LS-Auth-User-Token,Content-Type,X-LS-Sync-Result,X-LS-Sequence,token" />
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="../../css/app.css">
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
