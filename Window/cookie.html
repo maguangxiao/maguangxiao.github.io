@@ -5,22 +5,44 @@
     <title>cookie测试</title>
     <link rel="stylesheet" type="text/css" href="../css/app.css">
     <script type="text/javascript">
-      function setTestCookie(name,value)
-        {
-            var Days = 30;
-            var exp = new Date();
-            exp.setTime(exp.getTime() + Days*24*60*60*1000);
-            document.cookie = 'user=guangxiao' + ";expires=" + exp.toGMTString();
-            document.cookie = 'pwd=123456'+ ";expires=" + exp.toGMTString();
-            // document.cookie = 'HIT_SID=129950; expires=Thu, 19-Apr-2019 09:37:54 GMT; path=/; domain=.baidu.com'
-            // document.cookie = 'HIT_SID_TEST=129950; path=/;'
-            // document.cookie = 'HIT_SID_TEST=129950; path=/; domain=.baidu.com'
-            // document.cookie = 'H_WISE_SIDS=129950_100458; expires=Thu, 19-Apr-2019 09:37:54 GMT; path=/; domain=maguangxiao.github.io';
+    window.globalCookieNum = 0;
 
-            // var cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-            // console.log(cookie);
-            // document.cookie = cookie;
-            // console.log(cookie);
+      function setTestCookie()
+        {
+          window.globalCookieNum ++;
+          var cookieStr = getCookieStr();
+          document.cookie = cookieStr;
+
+           if (window.globalCookieNum % 3 === 1){
+             var cookieStr = getBaiduCookieStr();
+             document.cookie = cookieStr;
+           } else {
+             var cookieStr = getBaiduCookieStr();
+             document.cookie = cookieStr;
+
+             cookieStr = getNoExpireCookie();
+             document.cookie = cookieStr;
+
+           }
+        }
+
+        function getCookieStr() {
+          var Days = 30;
+          var exp = new Date();
+          exp.setTime(exp.getTime() + Days*24*60*60*1000);
+
+          return 'cookiegitname' + window.globalCookieNum + '=cookiegitValue' + window.globalCookieNum + ";expires=" + exp.toGMTString() + ';path=/; domain=.github.io';
+        }
+
+        function getBaiduCookieStr() {
+          var Days = 30;
+          var exp = new Date();
+          exp.setTime(exp.getTime() + Days*24*60*60*1000);
+          return 'cookiebaiduname' + window.globalCookieNum + '=cookiebaiduValue' + window.globalCookieNum + ";expires=" + exp.toGMTString() + ';path=/; domain=.baidu.com';
+        }
+
+        function getNoExpireCookie() {
+          return 'cookieExpirename' + window.globalCookieNum + '=cookieExpireValue' + window.globalCookieNum + ';path=/; domain=.github.io';
         }
 
         function setTCookie(){
