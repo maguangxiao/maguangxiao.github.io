@@ -12,7 +12,7 @@
           window.globalCookieNum ++;
           var cookieStr = getCookieStr();
           document.cookie = cookieStr;
-          document.cookie = 'cookiegitname2=cookiegitValue2;expires=Mon, 09 Sep 2019 16:10:33 GMT;path=/; domain=.github.io';
+          document.cookie = 'cookiegitname2=cookiegitValue2; expires=Mon, 09 Sep 2019 16:10:33 GMT; path=/; domain=.github.io';
            if (window.globalCookieNum % 3 === 1){
              var cookieStr = getBaiduCookieStr();
              document.cookie = cookieStr;
@@ -31,18 +31,18 @@
           var exp = new Date();
           exp.setTime(exp.getTime() + Days*24*60*60*1000);
 
-          return 'cookiegitname' + window.globalCookieNum + '=cookiegitValue' + window.globalCookieNum + ";expires=" + exp.toGMTString() + ';path=/; domain=.github.io';
+          return 'cookiegitname' + window.globalCookieNum + '=cookiegitValue' + window.globalCookieNum + "; expires=" + exp.toGMTString() + '; path=/; domain=.github.io';
         }
 
         function getBaiduCookieStr() {
           var Days = 30;
           var exp = new Date();
           exp.setTime(exp.getTime() + Days*24*60*60*1000);
-          return 'cookiebaiduname' + window.globalCookieNum + '=cookiebaiduValue' + window.globalCookieNum + ";expires=" + exp.toGMTString() + ';path=/; domain=.baidu.com';
+          return 'cookiebaiduname' + window.globalCookieNum + '=cookiebaiduValue' + window.globalCookieNum + "; expires=" + exp.toGMTString() + '; path=/; domain=.baidu.com';
         }
 
         function getNoExpireCookie() {
-          return 'cookieExpirename' + window.globalCookieNum + '=cookieExpireValue' + window.globalCookieNum + ';path=/; domain=.github.io';
+          return 'cookieExpirename' + window.globalCookieNum + '=cookieExpireValue' + window.globalCookieNum + '; path=/; domain=.github.io';
         }
 
         function setTCookie(){
