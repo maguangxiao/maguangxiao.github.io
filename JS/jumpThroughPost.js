@@ -1,3 +1,8 @@
+
+document.addEventListener('readystatechange', (event) => {
+  console.log(`readystate: ${document.readyState}\n`);
+});
+
 //发送POST请求跳转到指定页面
 function httpPost(URL, PARAMS) {
     console.log('httpPost');
