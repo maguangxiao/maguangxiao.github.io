@@ -17,8 +17,38 @@
     <title>处理多选列表的结果</title>
   </head>
   <body >
-    <input type='button' onclick='jump();' value='跳转'>
+    <p>
+      <input type='button' onclick='jump();' value='跳转'>
 
+    </p>
+    <p>
+      <input type='button' onclick='jump();' value='location.href的方式跳转首页'>
+    </p>
+    <p>
+      <input type="button" onclick="history.go(0);" name="" value="history.go(0)">
+    </p>
+    <p>
+      <input type="button" onclick="location.reload();" name="" value="location.reload()">
+    </p>
+    <p>
+      <input type="button" onclick="location=location;" name="" value="location=location">
+    </p>
+    <p>
+      <input type="button" onclick="location.assign(location);" name="" value="location.assign(location)">
+    </p>
+    <p>
+      <input type="button" onclick="document.execCommand('Refresh');" name="" value="document.execCommand('Refresh')">
+    </p>
+    <p>
+      <input type="button" onclick="window.navigate(location);" name="" value="window.navigate(location)">
+    </p>
+    <p>
+      <input type="button" onclick="location.replace(location);" name="" value="location.replace(location)">
+    </p>
+
+    <p>
+      <input type="button" onclick="document.URL=location.href;" name="" value="document.URL=location.href">
+    </p>
     <div>
       <p>
         =================以下内容为学习选择列表框============

@@ -9,7 +9,7 @@
     function jump() {
      window.location.href="https://maguangxiao.github.io";
      }
-     setTimeout('window.location.reload()',50);
+     // setTimeout('window.location.reload()',50);
 
     </script>
   </head>
@@ -17,6 +17,32 @@
   <p>
     <input type='button' onclick='jump();' value='location.href的方式跳转首页'>
   </p>
+  <p>
+    <input type="button" onclick="history.go(0);" name="" value="history.go(0)">
+  </p>
+  <p>
+    <input type="button" onclick="location.reload();" name="" value="location.reload()">
+  </p>
+  <p>
+    <input type="button" onclick="location=location;" name="" value="location=location">
+  </p>
+  <p>
+    <input type="button" onclick="location.assign(location);" name="" value="location.assign(location)">
+  </p>
+  <p>
+    <input type="button" onclick="document.execCommand('Refresh');" name="" value="document.execCommand('Refresh')">
+  </p>
+  <p>
+    <input type="button" onclick="window.navigate(location);" name="" value="window.navigate(location)">
+  </p>
+  <p>
+    <input type="button" onclick="location.replace(location);" name="" value="location.replace(location)">
+  </p>
+
+  <p>
+    <input type="button" onclick="document.URL=location.href;" name="" value="document.URL=location.href">
+  </p>
+
     <a href="https://juejin.im/entry/589d8c532f301e0069bfa595" target="_blank">这里有一个iframe的博客介绍 target = "_blank"</a> <br>
     <a href="https://juejin.im/entry/589d8c532f301e0069bfa595" target="_self">这里有一个iframe的博客介绍 target = "_self"</a> <br>
     <a href="JavaScript:void(0);" onclick= "window.location.href='https://juejin.im/entry/589d8c532f301e0069bfa595'" target="_blank">这里有一个iframe的博客介绍 window.location.href target = "_blank"</a> <br>
