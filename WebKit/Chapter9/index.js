@@ -1,7 +1,19 @@
 
+function isIOSOrAndroid () {
+  var u = navigator.userAgent;
+   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+   return isAndroid || isiOS;
+}
+
 document.addEventListener("visibilitychange", function() {
-  console.log(document.visibilityState);
-  alert('msg' + document.visibilityState);
+  if (isIOSOrAndroid()) {
+    alert('msg' + document.visibilityState);
+
+  } else {
+    console.log(document.visibilityState);
+
+  }
 });
 
 var heartbeattime = 0;
@@ -23,8 +35,11 @@ function requestFn(nowRequest) {
             }
             var im = new Image();
             im.src='https://www.baidu.com'
-            alert('msg requestFn' + 'https://www.baidu.com');
-
+            if (isIOSOrAndroid()) {
+              alert('msg requestFn' + 'https://www.baidu.com');
+            } else {
+              console.log('msg requestFn' + 'https://www.baidu.com');
+            }
         }
     }
 
@@ -38,8 +53,11 @@ function xmlget() {
       xmlhttp=new XMLHttpRequest();
       xmlhttp.open("GET","https://www.baidu.com",true);
       xmlhttp.send();
-      alert('msg XMLHttpRequest get' + 'https://www.baidu.com');
-
+      if (isIOSOrAndroid()) {
+        alert('msg XMLHttpRequest get' + 'https://www.baidu.com');
+      } else {
+        console.log('msg XMLHttpRequest get' + 'https://www.baidu.com');
+      }
   }
 
 }
@@ -51,7 +69,11 @@ function xmlPost() {
       xmlhttp1 =new XMLHttpRequest();
       xmlhttp1.open("POST","/try/ajax/demo_post.php",true);
       xmlhttp1.send();
-      alert('msg XMLHttpRequest post' + 'https://www.baidu.com');
+      if (isIOSOrAndroid()) {
+        alert('msg XMLHttpRequest post' + 'https://www.baidu.com');
+      } else {
+        console.log('msg XMLHttpRequest post' + 'https://www.baidu.com');
+      }
   }
 }
 
