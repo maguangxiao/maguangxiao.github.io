@@ -6,8 +6,7 @@
     <script type="text/javascript">
     window.addEventListener("load", function(event) {
       if (window.history.replaceState) {
-        var obj = {"bar":"foo"};
-        window.history.replaceState(obj, document.title, 'aa.html')
+        window.history.replaceState('', document.title, 'aa.html')
         // window.history.go(0)
       } else {
         window.location.replace('/gold-coin/buy-res')
