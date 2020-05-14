@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <title>webkit内幕</title>
     <script type="text/javascript">
+    window.addEventListener("load", function(event) {
+      if (window.history.replaceState) {
+        var obj = {"bar":"foo"};
+        window.history.replaceState(obj, document.title, 'aa.html')
+        // window.history.go(0)
+      } else {
+        window.location.replace('/gold-coin/buy-res')
+      }
+    });
 
     </script>
     <style type="text/css">
