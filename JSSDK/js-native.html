@@ -23,10 +23,23 @@
 <body>
     <button class="button" onclick="openJssdk()">点击调起</button>
     <p class="title">传入的参数为</p>
-    <p>xxx</p>
+    <p>
+      {
+        "name": "page_state",
+        "value": 10
+    },
+    {
+        "name": "ad_type",
+        "value": "fc"
+    },
+    {
+        "name": "state_time",
+        "value": "1603090851120"
+    }
+  </p>
     <p class="title">当前调试的端能力为</p>
     <p>
-        search.invokeMiniVideoBeeLandingPage
+        browser.adLoadState
     </p>
     <script src="https://bj.bcebos.com/v1/searchbox/boxx@na-debug.min.js">
     </script>
