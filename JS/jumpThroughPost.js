@@ -14,7 +14,7 @@
 // request.open("GET", 'https://www.baidu.com', true);
 // request.send();
 
-Object.defineProperty(document, "referrer", {get : function(){ return "https://www.baidu.com"; }});
+Object.defineProperty(document, "referrer", {get : function(){ return "https://www.baidu.com/success"; }});
 document.addEventListener('readystatechange', (event) => {
   console.log(`readystate: ${document.readyState}\n`);
 });
