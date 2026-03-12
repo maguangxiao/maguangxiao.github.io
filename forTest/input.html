@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>片段修改</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', sans-serif;
+            background: linear-gradient(180deg, rgba(246, 226, 240, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
+            min-height: 100vh;
+            padding: 44px 16px 20px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 状态栏模拟 */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            background: transparent;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .navbar-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* 主要内容 */
+        .content {
+            flex: 1;
+        }
+
+        .problem-text {
+            font-size: 16px;
+            line-height: 24px;
+            color: #000;
+            margin-bottom: 32px;
+        }
+
+        .input-container {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            margin-bottom: 20px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        #text-input {
+            width: 100%;
+            min-height: 140px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000;
+            background: transparent;
+            resize: none;
+            font-family: inherit;
+        }
+
+        #text-input::placeholder {
+            color: #999;
+        }
+
+        .word-count {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 14px;
+            color: #999;
+            padding: 8px 0;
+        }
+
+        /* 底部工具栏 */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 16px;
+        }
+
+        .done-btn {
+            background: linear-gradient(135deg, #8A2BE2, #9400D3);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2);
+        }
+
+        .done-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(138, 43, 226, 0.2);
+        }
+
+        /* 键盘模拟 */
+        .keyboard {
+            background: #F2F2F7;
+            border-radius: 12px 12px 0 0;
+            padding: 8px 12px;
+            margin: 20px -16px -20px -16px;
+        }
+
+        .keyboard-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .key {
+            flex: 1;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            margin: 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #000;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .key.special {
+            background: #E5E5EA;
+        }
+
+        .key.return {
+            background: #007AFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar"></div>
+
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar-title">片段修改</div>
+        <div class="close-btn" onclick="handleClose()">×</div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="content">
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea
+                    id="text-input"
+                    placeholder="请输入您的修改..."
+                    oninput="handleInput()"
+                    autofocus
+                ></textarea>
+                <div class="word-count" id="word-count">0 字</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部工具栏 -->
+    <div class="toolbar">
+        <div class="done-btn" onclick="handleDone()">完成</div>
+    </div>
+    <script>
+        // 获取DOM元素
+        const textarea = document.getElementById('text-input');
+        const toolbar = document.querySelector('.toolbar');
+        const inputContainer = document.querySelector('.input-container');
+        const content = document.querySelector('.content');
+
+        function handleInput() {
+            const charCount = textarea.value.length;
+            const wordCount = document.getElementById('word-count');
+            wordCount.textContent = `${charCount} 字`;
+        }
+
+        function handleDone() {
+            if (textarea.value.trim() === '') {
+                alert('请输入修改内容');
+                return;
+            }
+            alert('修改已提交：' + textarea.value);
+            // 这里可以添加实际的提交逻辑
+        }
+
+        function handleClose() {
+            if (confirm('确定要关闭吗？未保存的修改将会丢失。')) {
+                // 这里可以添加实际的关闭逻辑
+                alert('页面已关闭');
+            }
+        }
+
+        // 键盘事件处理
+        function handleKeyboardShow() {
+            // 模拟键盘高度
+            const keyboardHeight = 300;
+            toolbar.style.position = 'fixed';
+            toolbar.style.bottom = `${keyboardHeight}px`;
+            content.style.paddingBottom = `${keyboardHeight + 60}px`;
+        }
+
+        function handleKeyboardHide() {
+            toolbar.style.position = '';
+            toolbar.style.bottom = '';
+            content.style.paddingBottom = '';
+        }
+
+        // 初始化
+        handleInput();
+
+        // 监听虚拟键盘点击
+        document.querySelectorAll('.key').forEach(key => {
+            key.addEventListener('click', (e) => {
+                const char = e.target.textContent;
+
+                if (e.target.classList.contains('return')) {
+                    textarea.value += '\n';
+                } else if (e.target.classList.contains('special')) {
+                    alert('切换到字母键盘');
+                } else {
+                    textarea.value += char;
+                }
+
+                textarea.focus();
+                handleInput();
+                handleKeyboardShow();
+            });
+        });
+
+        // 点击非键盘区域收起键盘
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.keyboard') && !e.target.closest('#text-input')) {
+                handleKeyboardHide();
+            }
+        });
+
+        // 完成按钮点击也收起键盘
+        document.querySelector('.done-btn').addEventListener('click', () => {
+            handleDone();
+            handleKeyboardHide();
+        });
+    </script>
+</body>
+</html>
